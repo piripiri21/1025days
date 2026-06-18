@@ -138,6 +138,18 @@ canvas#sc{position:absolute;inset:0;z-index:0}
 }
 @media(min-width:720px){#universe-title{display:block}}
 
+/* MUSIC BUTTON */
+#music-btn{
+  position:absolute;bottom:16px;right:16px;z-index:10;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(10,8,24,0.75);border:1px solid rgba(180,140,100,0.25);
+  color:#b48c64;display:none;align-items:center;justify-content:center;
+  cursor:pointer;text-decoration:none;font-size:15px;
+  transition:all 0.25s;opacity:0.6;
+}
+#music-btn:hover{opacity:1;background:rgba(180,140,100,0.12);border-color:rgba(180,140,100,0.5);transform:scale(1.1)}
+#music-btn.show{display:flex;animation:riseIn 0.8s ease 1.5s both}
+
 /* MEMORY CARD */
 .mem-card{
   display:none;position:absolute;inset:0;align-items:center;justify-content:center;
@@ -298,6 +310,7 @@ canvas#sc{position:absolute;inset:0;z-index:0}
 
     <div id="hint">scroll or swipe to travel the timeline &middot; tap a stop</div>
     <div id="universe-title">1095 Days</div>
+    <a id="music-btn" href="https://www.youtube.com/watch?v=kqLY4Au5pwU" target="_blank" rel="noopener" title="Play our song ♪">&#9834;</a>
   </div>
 
   <div class="mem-card" id="mem-card">
@@ -697,6 +710,7 @@ document.getElementById("enter-btn").addEventListener("click", () => {
   setTimeout(() => {
     intro.style.display = "none";
     document.getElementById("track-scene").classList.add("visible");
+    document.getElementById("music-btn").classList.add("show");
     updateProgress();
   }, 1200);
 });
